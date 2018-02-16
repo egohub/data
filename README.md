@@ -7,7 +7,9 @@ Link for country in leagues [Demo json](https://egohub.github.io/data/countryByl
  - League Name 1
  - League Name 2
  
+ 
  #### Example Json
+ 
  ```json
    [
          {
@@ -59,7 +61,6 @@ Link for country in leagues [Demo json](https://egohub.github.io/data/countryByl
  ]
  ```
 
-===
 
 ### Markdown
 
