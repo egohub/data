@@ -1,8 +1,65 @@
 ## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/egohub/data/edit/gh-pages/README.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Link for country in leagues [Demo json](https://egohub.github.io/data/countryByleagues.json)
+
+### Country Name
+ - League Name 1
+ - League Name 2
+ 
+ #### Example Json
+ ```json
+   [
+         {
+          "country": "Afghanistan",
+          "league": [
+            {
+              "name": "Premier League",
+              "type": "Domestic league",
+              "season": "2017",
+              "link": "https://int.soccerway.com/national/afghanistan/afghan-premier-league/c1093/"
+            }
+          ]
+        },
+       {
+        "country": "England",
+          "league": [
+              {
+                "name": "Premier League",
+                "type": "Domestic league",
+                "season": "2017/2018",
+                "link": "https://int.soccerway.com/national/england/premier-league/c8/"
+              },
+              {
+                "name": "Championship",
+                "type": "Domestic league",
+                "season": "2017/2018",
+                "link": "https://int.soccerway.com/national/england/championship/c70/"
+              },
+              {
+              "name": "Community Shield",
+              "type": "Domestic super cup",
+              "season": "2017/2018",
+              "link": "https://int.soccerway.com/national/england/community-shield/c173/"
+            },
+            {
+              "name": "EFL Trophy",
+              "type": "Domestic cup",
+              "season": "2017/2018",
+              "link": "https://int.soccerway.com/national/england/football-league-trophy/c96/"
+            },
+            {
+              "name": "FA Trophy",
+              "type": "Domestic cup",
+              "season": "2017/2018",
+              "link": "https://int.soccerway.com/national/england/fa-trophy/c683/"
+            }
+        ]
+      }
+ ]
+ ```
+
+===
 
 ### Markdown
 
@@ -26,8 +83,5 @@ Syntax highlighted code block
 [Link](url) and ![Image](src)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/egohub/data/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
