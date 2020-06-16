@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video</title>
+    <link href="https://egohub.github.io/watch/lib/video-js.css" rel="stylesheet">
+    <link href="https://unpkg.com/@videojs/themes@1/dist/city/index.css" rel="stylesheet">
+    <link href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css" rel="stylesheet">
+    <link href="https://egohub.github.io/watch/lib/sea.css" rel="stylesheet">
+    <link href="https://egohub.github.io/watch/lib/fantasy.css" rel="stylesheet">
+    <link href="https://egohub.github.io/watch/lib/player-logo.css" rel="stylesheet">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-71010419-2"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167278162-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-167278162-1');
+    </script>
+
+    <style>
+        body {
+            background: -webkit-linear-gradient(left top, #3F51B5, #673AB7);
+            background: -o-linear-gradient(bottom right, #3F51B5, #673AB7);
+            background: -moz-linear-gradient(bottom right, #3F51B5, #673AB7);
+            background: linear-gradient(to bottom right, #3F51B5, #673AB7);
+        }
+        
+        .container {
+            padding-top: 100px;
+        }
+        
+        .video-js .vjs-control-bar {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <video id='hls-example' class="video-js vjs-theme-fantasy vjs-big-play-centered" width="400" height="300"></video>
+
+    </div>
+    <button onclick=download()>Download video</button>
+
+
+    <!-- JS code -->
+    <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+    <script src="https://egohub.github.io/watch/lib/videojs-contrib-hls.js"></script>
+    <script src="https://egohub.github.io/watch/lib/video.js"></script>
+    <script src="https://egohub.github.io/watch/lib/video-logo.js"></script>
+    <script>
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+            var results = regex.exec(location.search);
+            return results === null ?
+                "" :
+                decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+        var embed = getUrlParameter("video");
+        var urls = embed.split('video=')[0];
+        console.log(urls);
+
+        function download() {
+            let xhr = new XMLHttpRequest();
+            //set the request type to post and the destination url to '/convert' 
+
+            xhr.open('get', urls);
+            console.log(' url ' + embed);
+            //set the reponse type to blob since that's what we're expecting back
+            xhr.responseType = 'blob';
+
+
+            xhr.onload = function(e) {
+                if (this.status == 200) {
+
+                    // Create a new Blob object using the response data of the onload object
+                    var blob = new Blob([this.response], {
+                        type: "video\/mp4"
+                    });
+                    //Create a link element, hide it, direct it towards the blob, and then 'click' it programatically
+                    let a = document.createElement("a");
+                    a.style = "display: none";
+                    document.body.appendChild(a);
+                    //Create a DOMString representing the blob and point the link element towards it
+                    let url = window.URL.createObjectURL(blob);
+                    a.href = url;
+                    a.download = 'video1.mp4';
+                    //programatically click the link to trigger the download
+                    a.click();
+                    //release the reference to the file by revoking the Object URL
+
+                    // window.URL.revokeObjectURL(url);
+                } else {
+                    //deal with your error state here
+                }
+            };
+
+
+            xhr.send();
+        }
+
+        var player = videojs('hls-example', {
+            poster: 'https://picsum.photos/800/450',
+            controls: true,
+            loop: true,
+            fluid: true,
+            playbackRates: [1, 1.5, 2, 3]
+        });
+        player.src({
+            type: 'video/mp4',
+            src: embed
+        });
+        player.logo({
+            image: 'https://github.com/egohub/watch/raw/gh-pages/xray.png',
+            width: 20,
+            fadeDelay: null
+        });
+        // player.play();
+    </script>
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script></body>
+
+</html>
