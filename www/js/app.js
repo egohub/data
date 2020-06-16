@@ -1,11 +1,4 @@
 // Ionic Starter App
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js
-// angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 angular
     .module('starter', [
         'ionic',
@@ -55,7 +48,7 @@ angular
             url: '/dash',
             views: {
                 'tab-dash': {
-                    templateUrl: 'templates/tab-dash.html',
+                    templateUrl: 'www/templates/tab-dash.html',
                     controller: 'DashCtrl'
                 }
             }
@@ -65,7 +58,7 @@ angular
             views: {
 
                 'tab-dash': {
-                    templateUrl: 'templates/detail.html',
+                    templateUrl: 'www/templates/detail.html',
                     controller: 'detailCtrl'
                 }
             }
@@ -75,7 +68,7 @@ angular
             url: '/movies',
             views: {
                 'tab-movies': {
-                    templateUrl: 'templates/tab-movies.html',
+                    templateUrl: 'www/templates/tab-movies.html',
                     controller: 'ChatsCtrl'
                 }
             }
@@ -84,7 +77,7 @@ angular
             url: '/movies/:id',
             views: {
                 'tab-movies': {
-                    templateUrl: 'templates/chat-detail.html',
+                    templateUrl: 'www/templates/chat-detail.html',
                     controller: 'ChatDetailCtrl'
                 }
             }
@@ -93,7 +86,7 @@ angular
             url: '/chats/:id',
             views: {
                 'tab-chats': {
-                    templateUrl: 'templates/category.html',
+                    templateUrl: 'www/templates/category.html',
                     controller: 'CategoryCtrl'
                 }
             }
@@ -102,7 +95,7 @@ angular
             url: '/series',
             views: {
                 'tab-series': {
-                    templateUrl: 'templates/tab-series.html',
+                    templateUrl: 'www/templates/tab-series.html',
                     controller: 'AccountCtrl'
                 }
             }
@@ -111,7 +104,7 @@ angular
             url: '/series/:id',
             views: {
                 'tab-series': {
-                    templateUrl: 'templates/serie-detail.html',
+                    templateUrl: 'www/templates/serie-detail.html',
                     controller: 'serieDetailCtrl'
                 }
             }
