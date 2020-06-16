@@ -1,0 +1,38 @@
+<ion-view title="" hide-back-button="true" id="page2">
+    <ion-content padding="false" class="has-header">
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+
+        <!-- <div class="section">
+            <div class="content">
+                <div class="movie" ng-repeat="i in posts" ui-sref="tabs.detail({id:i.id})">
+                    <img class="poster" src="{{i.image}}" alt="" />
+                </div>
+            </div>
+        </div> -->
+        <div class="list">
+            <!-- <a class="item my-item item-image" collection-repeat="pet in posts | filter:filter" collection-item-height="150" ui-sref="tab.detail({id: pet.id })">
+                <img class="full-image" src="{{pet.image}}" style="height:100%;">
+                <h5>{{pet.title}}</h5>
+                <p>{{pet.rating}}</p>
+            </a> -->
+            <img collection-repeat="photo in posts" ui-sref="tab.detail({id: photo.id })" style="padding: 2px;" item-height="20%" item-width="33%" ng-src="{{photo.image}}">
+        </div>
+        <ion-infinite-scroll ng-if="moreDataExists()" on-infinite="loadMore()" distance="1%" immediate-check="false">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>
+
+
+<!-- <ion-content>
+  <div class="list">
+    <a class="item my-item item-image"
+       collection-repeat="pet in pets | filter:filter"
+       collection-item-height="180"
+       collection-item-width="'33%'"
+       ui-sref="tabs.detail({petsId: pet.id })">
+        <img class="full-image"  src="{{pet.image}}" style="height:100%;">
+        <h5>{{pet.title}}</h5>
+        <p>{{pet.rating}}</p>
+        </a>
+  </div>
+</ion-content> -->

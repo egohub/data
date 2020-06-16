@@ -1,0 +1,9 @@
+<ion-view title="{{news.title}}" id="page3">
+    <ion-content padding="false" class="has-header">
+        <img ng-src="{{news.image}}" alt="image" style="height: 350px;width: fit-content;">
+
+        <ion-list ng-repeat="d in episodes">
+            <ion-item href="{{d.sources[0].url}}" target="_blank">{{d.title}} {{d.sources.url}} </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

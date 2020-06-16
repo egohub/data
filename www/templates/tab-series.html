@@ -1,0 +1,8 @@
+<ion-view view-title="Account">
+    <ion-content>
+        <ion-list>
+            <img collection-repeat="photo in posts" ui-sref="tab.seriedetail({id: photo.id })" style="padding: 2px;" item-height="20%" item-width="33%" ng-src="{{photo.image}}">
+
+        </ion-list>
+    </ion-content>
+</ion-view>
