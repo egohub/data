@@ -99,7 +99,7 @@ angular.module('starter.controllers', [])
                 type: 'video/mp4',
             }, ],
             // theme: 'https://unpkg.com/videogular@2.1.2/dist/themes/default/videogular.css',
-            theme: 'lib/videogular/videogular.css',
+            theme: 'www/lib/videogular/videogular.css',
             plugins: {
                 poster: $scope.news.image,
             },
@@ -139,8 +139,8 @@ angular.module('starter.controllers', [])
                     src: $sce.trustAsResourceUrl($scope.news.sources[0].url),
                     type: 'video/mp4',
                 }, ],
-                theme: 'https://unpkg.com/videogular@2.1.2/dist/themes/default/videogular.css',
-                // theme: 'lib/videogular/videogular.css',
+//                 theme: 'https://unpkg.com/videogular@2.1.2/dist/themes/default/videogular.css',
+                 theme: 'www/lib/videogular/videogular.css',
                 plugins: {
                     poster: $scope.news.image,
                 },
